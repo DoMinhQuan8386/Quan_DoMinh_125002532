@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUANDO Nihongo - Học Tiếng Nhật Nhập Môn Cùng QUANDO</title>
+    
+    <!-- Google Fonts: Noto Sans JP & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Animate.css CDN (Theo yêu cầu đề bài) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!-- AOS - Animate On Scroll CDN (Theo yêu cầu đề bài) -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+    
+    <!-- File CSS Chính -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ==================== 1. HEADER & NAVIGATION ==================== -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#hero" class="brand-logo" aria-label="QUANDO Nihongo Trang chủ">
+                <!-- ẢNH 1: LOGO THƯƠNG HIỆU QUANDO -->
+                <img src="assets/images/logo.png" alt="Logo Thương hiệu QUANDO" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='inline-flex';">
+                <span id="logo-fallback" class="logo-badge-fallback">🌸</span>
+                <span class="logo-text">QUAN<span class="logo-highlight">DO</span> <small class="brand-sub">Nihongo</small></span>
+            </a>
+
+            <nav class="main-nav" aria-label="Thanh điều hướng chính">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#hero" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item"><a href="#alphabet" class="nav-link">Bảng chữ cái</a></li>
+                    <li class="nav-item"><a href="#flashcards" class="nav-link">Từ vựng Flashcard</a></li>
+                    <li class="nav-item"><a href="#culture" class="nav-link">Văn hóa Nhật Bản</a></li>
+                    <li class="nav-item"><a href="#study-tips" class="nav-link">Phương pháp học</a></li>
+                </ul>
+            </nav>
+
+            <a href="#alphabet" class="btn-cta-header">Bắt đầu học ngay</a>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main>
+
+        <!-- ==================== SECTION 1: HERO SECTION ==================== -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <span class="badge-tag animate__animated animate__fadeInDown">
+                        <span class="badge-dot"></span> Thương Hiệu Học Tiếng Nhật Trực Quan QUANDO
+                    </span>
+                    <h1 class="hero-title animate__animated animate__fadeInLeft">
+                        Chinh Phục <span class="text-gradient">Tiếng Nhật</span> Dễ Dàng Cùng QUANDO
+                    </h1>
+                    <p class="hero-description animate__animated animate__fadeInLeft animate__delay-1s">
+                        Cùng <strong>QUANDO</strong> làm chủ 2 bảng chữ cái Gojūon và 30 flashcard từ vựng phản xạ 3D. 
+                        Phương pháp học chuẩn Vibe Coding: Tinh gọn, thẩm mỹ, trực quan và ghi nhớ sâu!
+                    </p>
+                    <div class="hero-actions animate__animated animate__fadeInUp animate__delay-1s">
+                        <a href="#alphabet" class="btn-primary">Học Bảng Chữ Cái</a>
+                        <a href="#flashcards" class="btn-secondary">Luyện 30 Flashcard</a>
+                    </div>
+                    <div class="hero-stats animate__animated animate__fadeIn animate__delay-2s">
+                        <div class="stat-item">
+                            <strong class="stat-number">46</strong>
+                            <span class="stat-label">Hiragana</span>
+                        </div>
+                        <div class="stat-separator">/</div>
+                        <div class="stat-item">
+                            <strong class="stat-number">46</strong>
+                            <span class="stat-label">Katakana</span>
+                        </div>
+                        <div class="stat-separator">/</div>
+                        <div class="stat-item">
+                            <strong class="stat-number">30+</strong>
+                            <span class="stat-label">Từ vựng 3D</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual animate__animated animate__zoomIn animate__delay-1s">
+                    <div class="hero-image-wrapper">
+                        <!-- ẢNH 2: HERO BANNER CHÍNH CỦA QUANDO -->
+                        <img src="assets/images/hero-banner.png" alt="Học tiếng Nhật nhập môn cùng thương hiệu QUANDO" class="hero-banner-img" onerror="this.style.display='none'; document.getElementById('hero-img-fallback').style.display='flex';">
+                        
+                        <!-- Fallback Vector nếu chưa tải ảnh -->
+                        <div id="hero-img-fallback" class="hero-fallback-graphic">
+                            <div class="japanese-sun"></div>
+                            <div class="fuji-mountain"></div>
+                            <div class="torii-gate">⛩️</div>
+                            <div class="floating-sakura petal-1">🌸</div>
+                            <div class="floating-sakura petal-2">🌸</div>
+                            <div class="floating-sakura petal-3">🌸</div>
+                            <p class="fallback-caption">QUANDO ようこそ (Chào mừng bạn!)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 2: BẢNG CHỮ CÁI (PURE CSS TABS) ==================== -->
+        <section id="alphabet" class="alphabet-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">五十音図 (Gojūon) • QUANDO Method</span>
+                    <h2 class="section-title">Bảng Chữ Cái Tiếng Nhật</h2>
+                    <p class="section-subtitle">
+                        Nền tảng căn bản nhất để đọc và viết. Chọn tab bên dưới để chuyển đổi giữa Hiragana và Katakana thuần bằng hiệu ứng CSS.
+                    </p>
+                </div>
+
+                <!-- PURE CSS TABS CONTROLLER (Sử dụng Input Radio + Label) -->
+                <div class="tabs-wrapper">
+                    <input type="radio" name="alphabet-tab" id="tab-hiragana" class="tab-radio" checked>
+                    <input type="radio" name="alphabet-tab" id="tab-katakana" class="tab-radio">
+
+                    <nav class="tabs-nav" aria-label="Chuyển đổi bảng chữ cái">
+                        <label for="tab-hiragana" class="tab-button tab-btn-hiragana">
+                            <span class="tab-icon">あ</span>
+                            <span>Bảng Hiragana (Chữ Mềm)</span>
+                        </label>
+                        <label for="tab-katakana" class="tab-button tab-btn-katakana">
+                            <span class="tab-icon">ア</span>
+                            <span>Bảng Katakana (Chữ Cứng)</span>
+                        </label>
+                    </nav>
+
+                    <!-- TAB 1: BẢNG HIRAGANA -->
+                    <article class="tab-content content-hiragana">
+                        <!-- BANNER ẢNH MINH HỌA HIRAGANA -->
+                        <div class="kana-banner-box">
+                            <!-- ẢNH 3: BANNER BẢNG CHỮ CÁI HIRAGANA -->
+                            <img src="assets/images/hiragana-banner.png" alt="Bảng chữ cái Hiragana QUANDO" class="kana-banner-img" onerror="this.parentElement.style.display='none';">
+                        </div>
+
+                        <div class="tab-note">
+                            <strong>💡 Lưu ý từ QUANDO:</strong> Hiragana dùng để viết từ gốc Nhật thuần, trợ từ ngữ pháp và chia đuôi động từ/tính từ.
+                        </div>
+
+                        <div class="kana-grid">
+                            <!-- Hàng A -->
+                            <div class="kana-card"><span class="kana-char">あ</span><span class="kana-romaji">a</span></div>
+                            <div class="kana-card"><span class="kana-char">い</span><span class="kana-romaji">i</span></div>
+                            <div class="kana-card"><span class="kana-char">う</span><span class="kana-romaji">u</span></div>
+                            <div class="kana-card"><span class="kana-char">え</span><span class="kana-romaji">e</span></div>
+                            <div class="kana-card"><span class="kana-char">お</span><span class="kana-romaji">o</span></div>
+
+                            <!-- Hàng KA -->
+                            <div class="kana-card"><span class="kana-char">か</span><span class="kana-romaji">ka</span></div>
+                            <div class="kana-card"><span class="kana-char">き</span><span class="kana-romaji">ki</span></div>
+                            <div class="kana-card"><span class="kana-char">く</span><span class="kana-romaji">ku</span></div>
+                            <div class="kana-card"><span class="kana-char">け</span><span class="kana-romaji">ke</span></div>
+                            <div class="kana-card"><span class="kana-char">こ</span><span class="kana-romaji">ko</span></div>
+
+                            <!-- Hàng SA -->
+                            <div class="kana-card"><span class="kana-char">さ</span><span class="kana-romaji">sa</span></div>
+                            <div class="kana-card"><span class="kana-char">し</span><span class="kana-romaji">shi</span></div>
+                            <div class="kana-card"><span class="kana-char">す</span><span class="kana-romaji">su</span></div>
+                            <div class="kana-card"><span class="kana-char">せ</span><span class="kana-romaji">se</span></div>
+                            <div class="kana-card"><span class="kana-char">そ</span><span class="kana-romaji">so</span></div>
+
+                            <!-- Hàng TA -->
+                            <div class="kana-card"><span class="kana-char">た</span><span class="kana-romaji">ta</span></div>
+                            <div class="kana-card"><span class="kana-char">ち</span><span class="kana-romaji">chi</span></div>
+                            <div class="kana-card"><span class="kana-char">つ</span><span class="kana-romaji">tsu</span></div>
+                            <div class="kana-card"><span class="kana-char">て</span><span class="kana-romaji">te</span></div>
+                            <div class="kana-card"><span class="kana-char">と</span><span class="kana-romaji">to</span></div>
+
+                            <!-- Hàng NA -->
+                            <div class="kana-card"><span class="kana-char">な</span><span class="kana-romaji">na</span></div>
+                            <div class="kana-card"><span class="kana-char">に</span><span class="kana-romaji">ni</span></div>
+                            <div class="kana-card"><span class="kana-char">ぬ</span><span class="kana-romaji">nu</span></div>
+                            <div class="kana-card"><span class="kana-char">ね</span><span class="kana-romaji">ne</span></div>
+                            <div class="kana-card"><span class="kana-char">の</span><span class="kana-romaji">no</span></div>
+
+                            <!-- Hàng HA -->
+                            <div class="kana-card"><span class="kana-char">は</span><span class="kana-romaji">ha</span></div>
+                            <div class="kana-card"><span class="kana-char">ひ</span><span class="kana-romaji">hi</span></div>
+                            <div class="kana-card"><span class="kana-char">ふ</span><span class="kana-romaji">fu</span></div>
+                            <div class="kana-card"><span class="kana-char">へ</span><span class="kana-romaji">he</span></div>
+                            <div class="kana-card"><span class="kana-char">ほ</span><span class="kana-romaji">ho</span></div>
+
+                            <!-- Hàng MA -->
+                            <div class="kana-card"><span class="kana-char">ま</span><span class="kana-romaji">ma</span></div>
+                            <div class="kana-card"><span class="kana-char">み</span><span class="kana-romaji">mi</span></div>
+                            <div class="kana-card"><span class="kana-char">む</span><span class="kana-romaji">mu</span></div>
+                            <div class="kana-card"><span class="kana-char">め</span><span class="kana-romaji">me</span></div>
+                            <div class="kana-card"><span class="kana-char">mo</span><span class="kana-romaji">mo</span></div>
+
+                            <!-- Hàng YA -->
+                            <div class="kana-card"><span class="kana-char">や</span><span class="kana-romaji">ya</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card"><span class="kana-char">ゆ</span><span class="kana-romaji">yu</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card"><span class="kana-char">よ</span><span class="kana-romaji">yo</span></div>
+
+                            <!-- Hàng RA -->
+                            <div class="kana-card"><span class="kana-char">ら</span><span class="kana-romaji">ra</span></div>
+                            <div class="kana-card"><span class="kana-char">り</span><span class="kana-romaji">ri</span></div>
+                            <div class="kana-card"><span class="kana-char">る</span><span class="kana-romaji">ru</span></div>
+                            <div class="kana-card"><span class="kana-char">れ</span><span class="kana-romaji">re</span></div>
+                            <div class="kana-card"><span class="kana-char">ろ</span><span class="kana-romaji">ro</span></div>
+
+                            <!-- Hàng WA - WO - N -->
+                            <div class="kana-card"><span class="kana-char">わ</span><span class="kana-romaji">wa</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card"><span class="kana-char">を</span><span class="kana-romaji">wo</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card special-card"><span class="kana-char">ん</span><span class="kana-romaji">n</span></div>
+                        </div>
+                    </article>
+
+                    <!-- TAB 2: BẢNG KATAKANA -->
+                    <article class="tab-content content-katakana">
+                        <!-- BANNER ẢNH MINH HỌA KATAKANA -->
+                        <div class="kana-banner-box">
+                            <!-- ẢNH 4: BANNER BẢNG CHỮ CÁI KATAKANA -->
+                            <img src="assets/images/katakana-banner.png" alt="Bảng chữ cái Katakana QUANDO" class="kana-banner-img" onerror="this.parentElement.style.display='none';">
+                        </div>
+
+                        <div class="tab-note">
+                            <strong>💡 Lưu ý từ QUANDO:</strong> Katakana dùng để phiên âm từ mượn tiếng nước ngoài, tên riêng quốc tế và các âm thanh tượng thanh.
+                        </div>
+
+                        <div class="kana-grid">
+                            <!-- Hàng A -->
+                            <div class="kana-card katakana-card"><span class="kana-char">ア</span><span class="kana-romaji">a</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">イ</span><span class="kana-romaji">i</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ウ</span><span class="kana-romaji">u</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">エ</span><span class="kana-romaji">e</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">オ</span><span class="kana-romaji">o</span></div>
+
+                            <!-- Hàng KA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">カ</span><span class="kana-romaji">ka</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">キ</span><span class="kana-romaji">ki</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ク</span><span class="kana-romaji">ku</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ケ</span><span class="kana-romaji">ke</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">コ</span><span class="kana-romaji">ko</span></div>
+
+                            <!-- Hàng SA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">サ</span><span class="kana-romaji">sa</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">シ</span><span class="kana-romaji">shi</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ス</span><span class="kana-romaji">su</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">セ</span><span class="kana-romaji">se</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ソ</span><span class="kana-romaji">so</span></div>
+
+                            <!-- Hàng TA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">タ</span><span class="kana-romaji">ta</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">チ</span><span class="kana-romaji">chi</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ツ</span><span class="kana-romaji">tsu</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">テ</span><span class="kana-romaji">te</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ト</span><span class="kana-romaji">to</span></div>
+
+                            <!-- Hàng NA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">ナ</span><span class="kana-romaji">na</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ニ</span><span class="kana-romaji">ni</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ヌ</span><span class="kana-romaji">nu</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ネ</span><span class="kana-romaji">ne</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ノ</span><span class="kana-romaji">no</span></div>
+
+                            <!-- Hàng HA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">ハ</span><span class="kana-romaji">ha</span></div>
+                            <div class="kana-card katakana-char"><span class="kana-char">ヒ</span><span class="kana-romaji">hi</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">フ</span><span class="kana-romaji">fu</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ヘ</span><span class="kana-romaji">he</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ホ</span><span class="kana-romaji">ho</span></div>
+
+                            <!-- Hàng MA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">マ</span><span class="kana-romaji">ma</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ミ</span><span class="kana-romaji">mi</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ム</span><span class="kana-romaji">mu</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">メ</span><span class="kana-romaji">me</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">モ</span><span class="kana-romaji">mo</span></div>
+
+                            <!-- Hàng YA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">ヤ</span><span class="kana-romaji">ya</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ユ</span><span class="kana-romaji">yu</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ヨ</span><span class="kana-romaji">yo</span></div>
+
+                            <!-- Hàng RA -->
+                            <div class="kana-card katakana-card"><span class="kana-char">ラ</span><span class="kana-romaji">ra</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">リ</span><span class="kana-romaji">ri</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ル</span><span class="kana-romaji">ru</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">レ</span><span class="kana-romaji">re</span></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ロ</span><span class="kana-romaji">ro</span></div>
+
+                            <!-- Hàng WA - WO - N -->
+                            <div class="kana-card katakana-card"><span class="kana-char">ワ</span><span class="kana-romaji">wa</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card katakana-card"><span class="kana-char">ヲ</span><span class="kana-romaji">wo</span></div>
+                            <div class="kana-card empty-card"></div>
+                            <div class="kana-card special-card"><span class="kana-char">ン</span><span class="kana-romaji">n</span></div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 3: 30 TỪ VỰNG FLASHCARD (3D FLIP EFFECT) ==================== -->
+        <section id="flashcards" class="flashcards-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">単語 (Tango) • 3D Flashcard</span>
+                    <h2 class="section-title">30 Flashcard Từ Vựng Nhập Môn</h2>
+                    <p class="section-subtitle">
+                        Phương pháp ghi nhớ độc quyền của <strong>QUANDO</strong>: Lật thẻ 3D tức thì, kích thích tư duy hình ảnh và liên tưởng ngôn ngữ!
+                    </p>
+                </div>
+
+                <!-- NHÓM 1: CHÀO HỎI & XÃ GIAO (8 TỪ) -->
+                <div class="flashcard-group" data-aos="fade-up">
+                    <div class="group-header-with-thumb">
+                        <!-- ẢNH 5: THUMBNAIL CHỦ ĐỀ CHÀO HỎI -->
+                        <img src="assets/images/topic-greeting.png" alt="Chào hỏi giao tiếp Nhật Bản" class="topic-thumb-img" onerror="this.style.display='none';">
+                        <div class="group-header-text">
+                            <h3 class="group-heading"><span class="group-icon">🌸</span> Nhóm 1: Chào Hỏi & Giao Tiếp Cơ Bản (Aisatsu)</h3>
+                            <p class="group-subtext">Văn hóa cúi chào Ojigi và những câu giao tiếp cửa miệng của người Nhật</p>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-grid">
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Chào hỏi</span>
+                                    <h4 class="card-japanese">こんにちは</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Konnichiwa</span>
+                                    <p class="back-meaning">Xin chào</p>
+                                    <span class="back-desc">Lời chào thông dụng ban ngày</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Chào hỏi</span>
+                                    <h4 class="card-japanese">おはよう</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ohayou</span>
+                                    <p class="back-meaning">Chào buổi sáng</p>
+                                    <span class="back-desc">Lịch sự: Ohayou gozaimasu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Chào hỏi</span>
+                                    <h4 class="card-japanese">こんばんは</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Konbanwa</span>
+                                    <p class="back-meaning">Chào buổi tối</p>
+                                    <span class="back-desc">Dùng khi gặp gỡ vào buổi tối</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Xã giao</span>
+                                    <h4 class="card-japanese">ありがとう</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Arigatou</span>
+                                    <p class="back-meaning">Cảm ơn bạn</p>
+                                    <span class="back-desc">Trang trọng: Arigatou gozaimasu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Xã giao</span>
+                                    <h4 class="card-japanese">すみません</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Sumimasen</span>
+                                    <p class="back-meaning">Xin lỗi / Xin hỏi</p>
+                                    <span class="back-desc">Gọi phục vụ bàn hoặc xin lỗi nhẹ</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Chào hỏi</span>
+                                    <h4 class="card-japanese">さようなら</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Sayounara</span>
+                                    <p class="back-meaning">Tạm biệt</p>
+                                    <span class="back-desc">Chia tay trong khoảng thời gian dài</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đối thoại</span>
+                                    <h4 class="card-japanese">はい</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Hai</span>
+                                    <p class="back-meaning">Vâng / Đúng vậy</p>
+                                    <span class="back-desc">Từ đồng ý hoặc lắng nghe</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đối thoại</span>
+                                    <h4 class="card-japanese">いいえ</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Iie</span>
+                                    <p class="back-meaning">Không / Không có gì</p>
+                                    <span class="back-desc">Phủ định hoặc đáp lại lời cảm ơn</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- NHÓM 2: SỐ ĐẾM & THỜI GIAN (8 TỪ) -->
+                <div class="flashcard-group" data-aos="fade-up">
+                    <div class="group-header-with-thumb">
+                        <!-- ẢNH 6: THUMBNAIL CHỦ ĐỀ SỐ ĐẾM & THỜI GIAN -->
+                        <img src="assets/images/topic-number.png" alt="Số đếm và thời gian tiếng Nhật" class="topic-thumb-img" onerror="this.style.display='none';">
+                        <div class="group-header-text">
+                            <h3 class="group-heading"><span class="group-icon">🔢</span> Nhóm 2: Số Đếm & Khái Niệm Thời Gian (Kazuko & Toki)</h3>
+                            <p class="group-subtext">Nắm vững cách đếm số và mốc thời gian căn bản trong đời sống</p>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-grid">
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Số đếm</span>
+                                    <h4 class="card-japanese">一 (いち)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ichi</span>
+                                    <p class="back-meaning">Số 1</p>
+                                    <span class="back-desc">Số đếm căn bản đầu tiên</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Số đếm</span>
+                                    <h4 class="card-japanese">二 (に)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ni</span>
+                                    <p class="back-meaning">Số 2</p>
+                                    <span class="back-desc">Số đếm 2</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Số đếm</span>
+                                    <h4 class="card-japanese">三 (さん)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">San</span>
+                                    <p class="back-meaning">Số 3</p>
+                                    <span class="back-desc">Số đếm 3</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Số đếm</span>
+                                    <h4 class="card-japanese">四 (よん)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Yon / Shi</span>
+                                    <p class="back-meaning">Số 4</p>
+                                    <span class="back-desc">Thường đọc Yon để tránh từ Shi (tử)</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Số đếm</span>
+                                    <h4 class="card-japanese">五 (ご)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Go</span>
+                                    <p class="back-meaning">Số 5</p>
+                                    <span class="back-desc">Số đếm 5</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Thời gian</span>
+                                    <h4 class="card-japanese">今 (いま)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ima</span>
+                                    <p class="back-meaning">Bây giờ / Hiện tại</p>
+                                    <span class="back-desc">Ví dụ: Ima nan-ji desu ka?</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Thời gian</span>
+                                    <h4 class="card-japanese">今日 (きょう)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Kyou</span>
+                                    <p class="back-meaning">Hôm nay</p>
+                                    <span class="back-desc">Từ chỉ ngày hôm nay</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Thời gian</span>
+                                    <h4 class="card-japanese">明日 (あした)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ashita</span>
+                                    <p class="back-meaning">Ngày mai</p>
+                                    <span class="back-desc">Hẹn gặp ngày mai: Mata ashita!</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- NHÓM 3: ẨM THỰC & ĐỒ UỐNG (7 TỪ) -->
+                <div class="flashcard-group" data-aos="fade-up">
+                    <div class="group-header-with-thumb">
+                        <!-- ẢNH 7: THUMBNAIL CHỦ ĐỀ ẨM THỰC NHẬT BẢN -->
+                        <img src="assets/images/topic-food.png" alt="Ẩm thực Nhật Bản Sushi Ramen" class="topic-thumb-img" onerror="this.style.display='none';">
+                        <div class="group-header-text">
+                            <h3 class="group-heading"><span class="group-icon">🍵</span> Nhóm 3: Ẩm Thực & Đồ Uống (Tabemono & Nomimono)</h3>
+                            <p class="group-subtext">Tinh hoa ẩm thực Nhật Bản: Từ sushi, mì ramen đến văn hóa trà xanh</p>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-grid">
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đồ uống</span>
+                                    <h4 class="card-japanese">水 (みず)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Mizu</span>
+                                    <p class="back-meaning">Nước uống</p>
+                                    <span class="back-desc">Lịch sự: O-mizu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đồ uống</span>
+                                    <h4 class="card-japanese">お茶 (おちゃ)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ocha</span>
+                                    <p class="back-meaning">Trà xanh</p>
+                                    <span class="back-desc">Văn hóa trà đạo truyền thống</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Món ăn</span>
+                                    <h4 class="card-japanese">ご飯 (ごはん)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Gohan</span>
+                                    <p class="back-meaning">Cơm / Bữa ăn</p>
+                                    <span class="back-desc">Asagohan (bữa sáng), Hirugohan (trưa)</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Món ăn</span>
+                                    <h4 class="card-japanese">ラーメン</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Rāmen</span>
+                                    <p class="back-meaning">Mì Ramen</p>
+                                    <span class="back-desc">Từ mượn Katakana nổi tiếng</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Món ăn</span>
+                                    <h4 class="card-japanese">寿司 (すし)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Sushi</span>
+                                    <p class="back-meaning">Món Sushi</p>
+                                    <span class="back-desc">Biểu tượng ẩm thực xứ Phù Tang</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Động từ</span>
+                                    <h4 class="card-japanese">食べる (たべる)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Taberu</span>
+                                    <p class="back-meaning">Ăn</p>
+                                    <span class="back-desc">Lịch sự: Tabemasu</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Động từ</span>
+                                    <h4 class="card-japanese">飲む (のむ)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Nomu</span>
+                                    <p class="back-meaning">Uống</p>
+                                    <span class="back-desc">Lịch sự: Nomimasu</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- NHÓM 4: CON NGƯỜI & ĐỜI SỐNG (7 TỪ) -->
+                <div class="flashcard-group" data-aos="fade-up">
+                    <div class="group-header-with-thumb">
+                        <!-- ẢNH 8: THUMBNAIL CHỦ ĐỀ CON NGƯỜI & ĐỜI SỐNG -->
+                        <img src="assets/images/topic-people.png" alt="Con người và đời sống Nhật Bản" class="topic-thumb-img" onerror="this.style.display='none';">
+                        <div class="group-header-text">
+                            <h3 class="group-heading"><span class="group-icon">👥</span> Nhóm 4: Con Người & Đời Sống (Hito & Seikatsu)</h3>
+                            <p class="group-subtext">Danh từ xưng hô, mối quan hệ và những vật dụng quen thuộc mỗi ngày</p>
+                        </div>
+                    </div>
+
+                    <div class="flashcard-grid">
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đại từ</span>
+                                    <h4 class="card-japanese">私 (わたし)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Watashi</span>
+                                    <p class="back-meaning">Tôi</p>
+                                    <span class="back-desc">Đại từ xưng hô cơ bản</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Xã hội</span>
+                                    <h4 class="card-japanese">友達 (ともだち)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Tomodachi</span>
+                                    <p class="back-meaning">Bạn bè</p>
+                                    <span class="back-desc">Người bạn thân thiết</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Nghề nghiệp</span>
+                                    <h4 class="card-japanese">先生 (せんせい)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Sensei</span>
+                                    <p class="back-meaning">Thầy / Cô giáo</p>
+                                    <span class="back-desc">Bác sĩ hoặc người có chuyên môn cao</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Danh từ</span>
+                                    <h4 class="card-japanese">学生 (がくせい)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Gakusei</span>
+                                    <p class="back-meaning">Học sinh / Sinh viên</p>
+                                    <span class="back-desc">Daigakusei (Sinh viên đại học)</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đất nước</span>
+                                    <h4 class="card-japanese">日本 (にほん)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Nihon / Nippon</span>
+                                    <p class="back-meaning">Nhật Bản</p>
+                                    <span class="back-desc">Nihongo = Tiếng Nhật, Nihonjin = Người Nhật</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đời sống</span>
+                                    <h4 class="card-japanese">家 (いえ)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Ie / Uchi</span>
+                                    <p class="back-meaning">Ngôi nhà</p>
+                                    <span class="back-desc">Mái ấm gia đình, nơi ở</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="flip-card" tabindex="0">
+                            <div class="card-inner">
+                                <div class="card-front">
+                                    <span class="card-tag">Đồ vật</span>
+                                    <h4 class="card-japanese">本 (ほん)</h4>
+                                    <span class="card-sub-hint">Di chuột để lật ↻</span>
+                                </div>
+                                <div class="card-back">
+                                    <span class="back-romaji">Hon</span>
+                                    <p class="back-meaning">Quyển sách</p>
+                                    <span class="back-desc">Ví dụ: Nihongo no hon (Sách tiếng Nhật)</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==================== SECTION 4: KHÁM PHÁ VĂN HÓA NHẬT BẢN (GALLERY HÌNH ẢNH) ==================== -->
+        <section id="culture" class="culture-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">日本文化 (Nihon Bunka)</span>
+                    <h2 class="section-title">Khám Phá Nhật Bản Cùng QUANDO</h2>
+                    <p class="section-subtitle">
+                        Học ngôn ngữ luôn song hành cùng tình yêu văn hóa. Chiêm ngưỡng vẻ đẹp xứ sở Phù Tang qua lăng kính QUANDO.
+                    </p>
+                </div>
+
+                <div class="culture-gallery-grid">
+                    <article class="culture-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="culture-img-wrapper">
+                            <!-- ẢNH 9: NÚI PHÚ SĨ & HOA ANH ĐÀO  -->
+                            <img src="assets/images/culture-fuji.png" alt="Núi Phú Sĩ và hoa anh đào" class="culture-img" onerror="this.src='https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=600&auto=format&fit=crop&q=80';">
+                            <span class="culture-tag">Biểu tượng</span>
+                        </div>
+                        <div class="culture-content">
+                            <h3 class="culture-name">Núi Phú Sĩ & Hoa Anh Đào</h3>
+                            <p class="culture-desc">Đỉnh núi tuyết thiêng liêng hòa cùng sắc hồng Sakura rực rỡ đón mùa xuân.</p>
+                        </div>
+                    </article>
+
+                    <article class="culture-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="culture-img-wrapper">
+                            <!-- ẢNH 10: CỐ ĐÔ KYOTO & ĐỀN TORII -->
+                            <img src="assets/images/culture-kyoto.png" alt="Cố đô Kyoto thanh bình" class="culture-img" onerror="this.src='https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&auto=format&fit=crop&q=80';">
+                            <span class="culture-tag">Truyền thống</span>
+                        </div>
+                        <div class="culture-content">
+                            <h3 class="culture-name">Cố Đô Kyoto Cổ Kính</h3>
+                            <p class="culture-desc">Hàng ngàn chiếc cổng Torii son đỏ tại Fushimi Inari mang đậm nét tâm linh ngàn năm.</p>
+                        </div>
+                    </article>
+
+                    <article class="culture-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="culture-img-wrapper">
+                            <!-- ẢNH 11: THỦ ĐÔ TOKYO HIỆN ĐẠI -->
+                            <img src="assets/images/culture-tokyo.png" alt="Thủ đô Tokyo hiện đại về đêm" class="culture-img" onerror="this.src='https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=600&auto=format&fit=crop&q=80';">
+                            <span class="culture-tag">Hiện đại</span>
+                        </div>
+                        <div class="culture-content">
+                            <h3 class="culture-name">Tokyo Nhộn Nhịp Sôi Động</h3>
+                            <p class="culture-desc">Thành phố tương lai hòa quyện hoàn hảo giữa công nghệ hiện đại và bản sắc Á Đông.</p>
+                        </div>
+                    </article>
+                </div>
+
+        <!-- ==================== SECTION 5: PHƯƠNG PHÁP HỌC & LỘ TRÌNH ==================== -->
+        <section id="study-tips" class="study-tips-section" data-aos="fade-up" data-aos-duration="1000">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">学習法 (Gakushū-hō) • QUANDO Roadmap</span>
+                    <h2 class="section-title">Lộ Trình Nhập Môn 3 Bước Chuẩn Vibe</h2>
+                    <p class="section-subtitle">Chỉ cần 15 - 20 phút mỗi ngày cùng QUANDO để tạo phản xạ ngôn ngữ tự nhiên.</p>
+                </div>
+
+                <div class="tips-grid">
+                    <article class="tip-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="tip-card-media">
+                            <!-- ẢNH 12: THUMBNAIL BƯỚC 1 -->
+                            <img src="assets/images/tip-alphabet.png" alt="Luyện viết bảng chữ cái cùng QUANDO" class="tip-thumb-img" onerror="this.style.display='none';">
+                        </div>
+                        <div class="tip-step">01</div>
+                        <h3 class="tip-title">Học Theo Hàng Ngũ Âm (a-i-u-e-o)</h3>
+                        <p class="tip-desc">
+                            Mỗi ngày viết và đọc to 1 hàng (5 chữ). Kết hợp phương pháp liên tưởng tranh vẽ của <strong>QUANDO</strong> để nhớ nét chữ nhanh hơn.
+                        </p>
+                    </article>
+
+                    <article class="tip-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="tip-card-media">
+                            <!-- ẢNH 13: THUMBNAIL BƯỚC 2 -->
+                            <img src="assets/images/tip-flashcard.png" alt="Luyện phản xạ 3D Flashcard" class="tip-thumb-img" onerror="this.style.display='none';">
+                        </div>
+                        <div class="tip-step">02</div>
+                        <h3 class="tip-title">Luyện Phản Xạ 3D Flashcard</h3>
+                        <p class="tip-desc">
+                            Đoán nghĩa trước khi rê chuột lật thẻ. Lặp lại 30 từ vựng này cho đến khi nhận diện mặt chữ dưới 1 giây.
+                        </p>
+                    </article>
+
+                    <article class="tip-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="tip-card-media">
+                            <!-- ẢNH 14: THUMBNAIL BƯỚC 3 -->
+                            <img src="assets/images/tip-speaking.png" alt="Ứng dụng giao tiếp tiếng Nhật thực tế" class="tip-thumb-img" onerror="this.style.display='none';">
+                        </div>
+                        <div class="tip-step">03</div>
+                        <h3 class="tip-title">Ứng Dụng Chào Hỏi Hằng Ngày</h3>
+                        <p class="tip-desc">
+                            Tự nói thầm "Ohayou", "Arigatou", "Konnichiwa" vào các hoạt động thực tế để biến từ vựng thành thói quen.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== 6. FOOTER ==================== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-logo footer-logo">
+                    <!-- LOGO FOOTER THƯƠNG HIỆU QUANDO -->
+                    <span class="logo-text">QUAN<span class="logo-highlight">DO</span> <small class="brand-sub">Nihongo</small></span>
+                </div>
+                <p class="footer-bio">
+                    Thương hiệu giáo dục tiếng Nhật trực quan <strong>QUANDO</strong>. 
+                    Dự án bài kiểm tra giữa kỳ môn Thiết kế Web theo phong cách Vibe Coding.
+                </p>
+            </div>
+
+            <div class="footer-links-col">
+                <h4 class="footer-heading">Liên kết nhanh</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#hero">Trang chủ QUANDO</a></li>
+                    <li><a href="#alphabet">Bảng chữ cái Gojūon</a></li>
+                    <li><a href="#flashcards">Flashcard 30 từ vựng</a></li>
+                    <li><a href="#culture">Văn hóa Nhật Bản</a></li>
+                    <li><a href="#study-tips">Phương pháp học tập</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-info-col">
+                <h4 class="footer-heading">Thông tin sinh viên</h4>
+                <p><strong>Họ và tên:</strong> Đỗ Minh Quân</p>
+                <p><strong>MSSV:</strong> 125002532</p>
+                <p><strong>Thương hiệu:</strong> QUANDO Nihongo</p>
+                <p><strong>Trường:</strong> Đại học Lạc Hồng</p>
+                <p><strong>Khoa:</strong> Công nghệ Thông tin</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <p>© 2026 Thương hiệu QUANDO Nihongo - Sinh viên: Đỗ Minh Quân (MSSV: 125002532). 🌸 がんばってください！</p>
+        </div>
+    </footer>
+
+    <!-- Thư viện AOS JS khởi chạy hiệu ứng cuộn trang -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

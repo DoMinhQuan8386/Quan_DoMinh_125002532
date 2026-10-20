@@ -1,0 +1,1184 @@
+/* ==========================================================================
+   QUANDO NIHONGO - MÃ NGUỒN CSS CHUẨN VIBE CODING
+   Thương hiệu: QUANDO (Khoa CNTT - Đại học Lạc Hồng)
+   Kỹ thuật: Semantic HTML5, CSS Variables, Flexbox, Grid, Pure CSS 3D Flip & Tabs
+   ========================================================================== */
+
+/* ==================== 1. CSS VARIABLES (:ROOT) ==================== */
+:root {
+    /* Bảng màu chủ đạo theo đề bài */
+    --primary-color: #FFB7C5;        /* Hồng hoa anh đào nhẹ nhàng (Sakura Pink) */
+    --primary-light: #FFF0F3;        /* Hồng phấn rất nhẹ làm nền thẻ */
+    --primary-dark: #F694A6;         /* Hồng đậm dùng cho viền/hover */
+    
+    --accent-color: #E60012;         /* Đỏ Nhật Bản (Hinomaru Red) làm điểm nhấn QUANDO */
+    --accent-hover: #C70025;         /* Đỏ đậm khi hover nút */
+    --accent-light: #FFEBEC;         /* Nền nhạt cho badge điểm nhấn */
+    
+    --bg-primary: #FFFFFF;           /* Trắng chủ đạo */
+    --bg-secondary: #FFF9FA;         /* Nền xám/hồng cực nhẹ sang trọng */
+    --bg-card: #FFFFFF;              /* Nền thẻ trắng */
+    
+    --text-primary: #2D3436;         /* Màu chữ đậm dễ đọc */
+    --text-secondary: #636E72;       /* Màu chữ phụ */
+    --text-muted: #8395A7;           /* Chữ chú thích */
+    
+    --border-color: #FFE0E6;         /* Đường viền hoa anh đào thanh mảnh */
+    --border-card: #F0E6E8;          /* Viền khối card */
+    
+    /* Hiệu ứng đổ bóng (Box-shadow) mềm mại */
+    --shadow-sm: 0 4px 10px rgba(255, 183, 197, 0.15);
+    --shadow-md: 0 8px 24px rgba(230, 0, 18, 0.08);
+    --shadow-lg: 0 16px 36px rgba(230, 0, 18, 0.12);
+    --shadow-card: 0 8px 20px rgba(0, 0, 0, 0.04);
+    
+    /* Font chữ */
+    --font-primary: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-japanese: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    
+    /* Bán kính bo góc (Border Radius) */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-full: 9999px;
+    
+    /* Hiệu ứng chuyển động mượt mà */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==================== 2. RESET & BASE STYLES ==================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #FF6B81 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-container,
+.hero-container,
+.section-container,
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+/* ==================== 3. HEADER & NAVIGATION ==================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+}
+
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 1.35rem;
+    color: var(--text-primary);
+}
+
+.brand-sub {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-left: 2px;
+}
+
+.logo-img {
+    height: 42px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-badge-fallback {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-light);
+    border: 1px solid var(--primary-color);
+    border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.logo-highlight {
+    color: var(--accent-color);
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    border-radius: var(--radius-full);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: var(--accent-color);
+    outline: none;
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    width: 100%;
+}
+
+.btn-cta-header {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 0.9rem;
+    padding: 10px 22px;
+    border-radius: var(--radius-full);
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(230, 0, 18, 0.25);
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-cta-header:hover,
+.btn-cta-header:focus {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(230, 0, 18, 0.35);
+    outline: none;
+}
+
+/* ==================== 4. SECTION 1: HERO SECTION ==================== */
+.hero-section {
+    padding: 70px 0 60px;
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 48px;
+}
+
+.badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary-light);
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    line-height: 1.7;
+    max-width: 540px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    font-weight: 700;
+    padding: 14px 30px;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(230, 0, 18, 0.3);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(230, 0, 18, 0.4);
+    outline: none;
+}
+
+.btn-secondary {
+    background-color: #FFFFFF;
+    color: var(--text-primary);
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    border: 1.5px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    outline: none;
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding-top: 24px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.825rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.stat-separator {
+    color: var(--border-color);
+    font-size: 1.5rem;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: #FFFFFF;
+    border: 2px solid var(--border-color);
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-banner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.hero-banner-img:hover {
+    transform: scale(1.03);
+}
+
+/* Fallback vector thuần CSS */
+.hero-fallback-graphic {
+    width: 100%;
+    height: 380px;
+    background: radial-gradient(circle at 50% 35%, #FFF0F3 0%, #FFFFFF 85%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.japanese-sun {
+    width: 160px;
+    height: 160px;
+    background: linear-gradient(135deg, #FF5252, var(--accent-color));
+    border-radius: 50%;
+    box-shadow: 0 0 40px rgba(230, 0, 18, 0.3);
+    position: absolute;
+    top: 50px;
+    z-index: 1;
+}
+
+.fuji-mountain {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-bottom: 120px solid #718093;
+    z-index: 2;
+    opacity: 0.25;
+}
+
+.torii-gate {
+    font-size: 4rem;
+    position: relative;
+    z-index: 3;
+    margin-top: 60px;
+    animation: floatTorii 3s ease-in-out infinite alternate;
+}
+
+.fallback-caption {
+    position: relative;
+    z-index: 3;
+    font-family: var(--font-japanese);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6px 18px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-color);
+    margin-top: 14px;
+}
+
+.floating-sakura {
+    position: absolute;
+    font-size: 1.5rem;
+    z-index: 4;
+    animation: floatSakura 4s infinite linear;
+    opacity: 0.8;
+}
+
+.petal-1 { top: 15%; left: 15%; animation-duration: 5s; }
+.petal-2 { top: 40%; right: 18%; animation-duration: 6s; }
+.petal-3 { bottom: 25%; left: 25%; animation-duration: 4.5s; }
+
+@keyframes floatTorii {
+    from { transform: translateY(0); }
+    to { transform: translateY(-6px); }
+}
+
+@keyframes floatSakura {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(12px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+/* ==================== 5. SECTION HEADINGS ==================== */
+.section-header {
+    margin-bottom: 48px;
+}
+
+.section-badge {
+    display: inline-block;
+    font-family: var(--font-japanese);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    background: var(--accent-light);
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* ==================== 6. SECTION 2: BẢNG CHỮ CÁI ==================== */
+.alphabet-section {
+    padding: 90px 0;
+    background-color: #FFFFFF;
+}
+
+.tab-radio {
+    display: none;
+}
+
+.tabs-wrapper {
+    position: relative;
+}
+
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.tab-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: var(--radius-full);
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.tab-button .tab-icon {
+    font-family: var(--font-japanese);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    width: 28px;
+    height: 28px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.tab-button:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+#tab-hiragana:checked ~ .tabs-nav .tab-btn-hiragana,
+#tab-katakana:checked ~ .tabs-nav .tab-btn-katakana {
+    background-color: var(--accent-color);
+    color: #FFFFFF;
+    border-color: var(--accent-color);
+    box-shadow: 0 6px 20px rgba(230, 0, 18, 0.28);
+}
+
+#tab-hiragana:checked ~ .tabs-nav .tab-btn-hiragana .tab-icon,
+#tab-katakana:checked ~ .tabs-nav .tab-btn-katakana .tab-icon {
+    background-color: #FFFFFF;
+    color: var(--accent-color);
+}
+
+.tab-content {
+    display: none;
+    animation: fadeInTab 0.5s ease-in-out;
+}
+
+#tab-hiragana:checked ~ .content-hiragana {
+    display: block;
+}
+
+#tab-katakana:checked ~ .content-katakana {
+    display: block;
+}
+
+@keyframes fadeInTab {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.kana-banner-box {
+    margin-bottom: 24px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    max-height: 220px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.kana-banner-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.tab-note {
+    background-color: var(--primary-light);
+    border-left: 4px solid var(--accent-color);
+    padding: 12px 20px;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+/* Bố cục Grid 5 Cột */
+.kana-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.kana-card {
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 18px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    cursor: default;
+}
+
+.kana-char {
+    font-family: var(--font-japanese);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 4px;
+    transition: var(--transition);
+}
+
+.kana-romaji {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kana-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 20px rgba(255, 183, 197, 0.4);
+    background: linear-gradient(180deg, #FFFFFF 0%, var(--primary-light) 100%);
+}
+
+.kana-card:hover .kana-char {
+    color: var(--accent-color);
+}
+
+.empty-card {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.special-card {
+    background: #FFFBF0;
+    border-color: #FFEAA7;
+}
+
+.katakana-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 20px rgba(230, 0, 18, 0.15);
+}
+
+/* ==================== 7. SECTION 3: FLASHCARDS (3D FLIP) ==================== */
+.flashcards-section {
+    padding: 90px 0;
+    background-color: var(--bg-secondary);
+}
+
+.flashcard-group {
+    margin-bottom: 56px;
+}
+
+.flashcard-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Header nhóm kèm ảnh Thumbnail */
+.group-header-with-thumb {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.topic-thumb-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+}
+
+.group-heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+.group-icon {
+    font-size: 1.4rem;
+}
+
+.group-subtext {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.flashcard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 22px;
+}
+
+/* 3D FLIP CARD */
+.flip-card {
+    perspective: 1000px;
+    height: 190px;
+    cursor: pointer;
+    outline: none;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .card-inner,
+.flip-card:focus .card-inner,
+.flip-card:focus-within .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1.5px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.card-front {
+    background-color: #FFFFFF;
+}
+
+.card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: var(--primary-light);
+    color: var(--accent-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+}
+
+.card-japanese {
+    font-family: var(--font-japanese);
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+.card-sub-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: auto;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #FFF0F3 0%, #FFFFFF 100%);
+    border-color: var(--primary-color);
+    transform: rotateY(180deg);
+}
+
+.back-romaji {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+.back-meaning {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+}
+
+.back-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* ==================== 8. SECTION 4: GALLERY VĂN HÓA NHẬT BẢN ==================== */
+.culture-section {
+    padding: 90px 0;
+    background-color: #FFFFFF;
+}
+
+.culture-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.culture-card {
+    background-color: var(--bg-secondary);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.culture-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+}
+
+.culture-img-wrapper {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.culture-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.culture-card:hover .culture-img {
+    transform: scale(1.08);
+}
+
+.culture-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background-color: rgba(230, 0, 18, 0.9);
+    color: #FFFFFF;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(4px);
+}
+
+.culture-content {
+    padding: 24px;
+}
+
+.culture-name {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.culture-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ==================== 9. SECTION 5: STUDY TIPS ==================== */
+.study-tips-section {
+    padding: 90px 0;
+    background-color: var(--bg-secondary);
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tip-card {
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    position: relative;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.tip-card-media {
+    width: 100%;
+    height: 140px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 20px;
+    background: var(--primary-light);
+}
+
+.tip-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tip-card:hover .tip-thumb-img {
+    transform: scale(1.06);
+}
+
+.tip-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow-md);
+}
+
+.tip-step {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 12px;
+    transition: var(--transition);
+}
+
+.tip-card:hover .tip-step {
+    color: var(--accent-color);
+}
+
+.tip-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.tip-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* ==================== 10. FOOTER ==================== */
+.site-footer {
+    background-color: #1E272E;
+    color: #CAD5E2;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo .logo-text {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.footer-bio {
+    font-size: 0.9rem;
+    margin-top: 16px;
+    line-height: 1.7;
+    color: #9BAEC8;
+    max-width: 380px;
+}
+
+.footer-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-links-list li {
+    margin-bottom: 10px;
+}
+
+.footer-links-list a {
+    color: #9BAEC8;
+    font-size: 0.9rem;
+}
+
+.footer-links-list a:hover {
+    color: var(--primary-color);
+    padding-left: 6px;
+}
+
+.footer-info-col p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: #9BAEC8;
+}
+
+.footer-info-col strong {
+    color: #FFFFFF;
+}
+
+.footer-bottom {
+    padding-top: 24px;
+    font-size: 0.85rem;
+    color: #718093;
+}
+
+/* ==================== 11. RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-actions,
+    .hero-stats {
+        justify-content: center;
+    }
+
+    .culture-gallery-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        height: auto;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        flex-wrap: wrap;
+        gap: 14px;
+        justify-content: center;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+    }
+
+    .nav-list {
+        justify-content: center;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .btn-cta-header {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .kana-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
+
+    .kana-card {
+        padding: 12px 4px;
+    }
+
+    .kana-char {
+        font-size: 1.6rem;
+    }
+
+    .tabs-nav {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-button {
+        justify-content: center;
+    }
+
+    .group-header-with-thumb {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-bio {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
